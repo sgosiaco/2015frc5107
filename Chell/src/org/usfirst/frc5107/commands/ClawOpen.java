@@ -6,27 +6,24 @@
 
 package org.usfirst.frc5107.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  *
  * @author BITKRUSHER
  */
-public class PneumaticsNeutral extends CommandBase {
+public class ClawOpen extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public PneumaticsNeutral() {
+    public ClawOpen() {
         requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser3, 1, "Neutral");
-        //DriverStationLCD.getInstance().updateLCD();
-        pneumatics.neutral();
+        pneumatics.clawOff();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -34,7 +31,7 @@ public class PneumaticsNeutral extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        //pneumatics.neutral();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -1,6 +1,5 @@
 package org.usfirst.frc5107;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Preferences;
 
 /**
@@ -20,51 +19,42 @@ public class RobotMap {
             rLeftMotor,
             fRightMotor,
             rRightMotor,
-            //cMotor1 = 1,
-            cMotor2,
-            //cameraPan = 5,
-            //cameraTilt = 6,
-            cFeed,
-            cScrew1,
-            cScrew2,
-            //solenoid1 = 3,
-            solenoid2;
-
+            liftMotor,
+            lIntake,
+            rIntake,
+            lIntake2,
+            rIntake2;
     // If you are using multiple modules, make sure to define both the port
     // number and the module. For example you with a rangefinder:
     // public static final int rangefinderPort = 1;
     // public static final int rangefinderModule = 1;
     public static int
-            clawLimit,
-            screwUp,
-            screwDown;
+            clawUp,
+            clawDown;
     
     public static double
-            cMotorSpeed,
-            cFeedSpeed,
-            cScrewSpeed;
+            liftMotorSpeed,
+            intakeSpeed;
     public RobotMap()
     { 
     	Preferences pref = Preferences.getInstance();
-        fLeftMotor = pref.getInt("fLeftMotor", 9);
-        rLeftMotor = pref.getInt("rLeftMotor", 10);
-        fRightMotor = pref.getInt("fRightMotor", 8);
-        rRightMotor = pref.getInt("rRightMotor", 7);
-        //cMotor1 = 1,
-        cMotor2 = pref.getInt("cMotor2", 2);
-        //cameraPan = 5,
-        //cameraTilt = 6,
-        cFeed = pref.getInt("cFeed", 6);
-        cScrew1 = pref.getInt("cScrew1", 4);
-        cScrew2 = pref.getInt("cScrew2", 5);
-        //solenoid1 = 3,
-        solenoid2 = pref.getInt("solenoid2", 3);
-        clawLimit = pref.getInt("clawLimit", 2);
-        screwUp = pref.getInt("screwUp", 3);
-        screwDown = pref.getInt("screwDown", 4);
-        cMotorSpeed = pref.getDouble("cMotorSpeed", -.75);
-        cFeedSpeed = pref.getDouble("cFeedSpeed", .75);
-        cScrewSpeed = pref.getDouble("cScrewSpeed", .25);
+        //Motors
+    	fLeftMotor = pref.getInt("fLeftMotor", 1);
+        rLeftMotor = pref.getInt("rLeftMotor", 2);
+        fRightMotor = pref.getInt("fRightMotor", 3);
+        rRightMotor = pref.getInt("rRightMotor", 4);
+        liftMotor = pref.getInt("liftMotor", 5);
+        lIntake = pref.getInt("lIntake", 6);
+        rIntake = pref.getInt("rIntake", 7);
+        lIntake2 = pref.getInt("lIntake2", 8);
+        rIntake2 = pref.getInt("rIntake2", 9);
+        //Limit Switches
+        clawUp  = pref.getInt("clawUp", 1);
+        clawDown = pref.getInt("clawDown", 2);
+        //Motor Speeds
+        liftMotorSpeed = pref.getInt("liftMotorSpeed", 1);
+        intakeSpeed = pref.getInt("intakeSpeed", 1);
+
         
     }
  }

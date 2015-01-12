@@ -10,7 +10,7 @@ import org.usfirst.frc5107.subsystems.DriveTrain;
 import org.usfirst.frc5107.subsystems.Pneumatics;
 
 import org.usfirst.frc5107.subsystems.Camera;
-import org.usfirst.frc5107.subsystems.ClawFeed;
+import org.usfirst.frc5107.subsystems.ToteIntake;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -26,7 +26,7 @@ public abstract class CommandBase extends Command {
     public static Claw claw = new Claw();
     public static Pneumatics pneumatics = new Pneumatics();
     public static Camera camera = new Camera();
-    public static ClawFeed clawFeed = new ClawFeed();
+    public static ToteIntake toteIntake = new ToteIntake();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

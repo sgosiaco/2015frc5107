@@ -6,29 +6,24 @@
 
 package org.usfirst.frc5107.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  *
  * @author BITKRUSHER
  */
-public class Compressor1 extends CommandBase {
+public class ClawClose extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public Compressor1() {
+    public ClawClose() {
         requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser3, 1, "          ");
-        //DriverStationLCD.getInstance().updateLCD();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser3, 1, "ON");
-        //DriverStationLCD.getInstance().updateLCD();
-        pneumatics.compEnable();
+        pneumatics.clawOn();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -36,11 +31,7 @@ public class Compressor1 extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        System.out.println("Comp exec");
-        if(pneumatics.compSwitch()==false){
-            System.out.println("Comp on");
-            pneumatics.compOn();
-        }
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,16 +45,10 @@ public class Compressor1 extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        //pneumatics.compOff();
-                //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser3, 1, "          ");
-        //DriverStationLCD.getInstance().updateLCD();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser3, 1, "OFF");
-        //DriverStationLCD.getInstance().updateLCD();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        end();
     }
 }

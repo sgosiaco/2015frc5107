@@ -6,26 +6,24 @@
 
 package org.usfirst.frc5107.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  *
  * @author BITKRUSHER
  */
-public class SpringForward extends CommandBase {
+public class Claw extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public SpringForward () {
-        requires(claw);
+    public Claw() {
+        requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser2, 1, "Gearbox Forward");
-        //DriverStationLCD.getInstance().updateLCD();
+        pneumatics.clawOff();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -33,7 +31,7 @@ public class SpringForward extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        claw.springForward();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,17 +45,11 @@ public class SpringForward extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        claw.springOff();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser2, 1, "                 ");
-        //DriverStationLCD.getInstance().updateLCD();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser2, 1, "Gearbox Off");
-        //DriverStationLCD.getInstance().updateLCD();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        end();
+    	pneumatics.clawOn();
     }
 }
-

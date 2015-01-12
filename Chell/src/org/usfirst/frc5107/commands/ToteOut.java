@@ -10,14 +10,14 @@ package org.usfirst.frc5107.commands;
  *
  * @author BITKRUSHER
  */
-public class ServoUp extends CommandBase {
+public class ToteOut extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public ServoUp() {
-        requires(camera);
+    public ToteOut() {
+        requires(toteIntake);
     }
 
     // Called just before this Command runs the first time
@@ -30,8 +30,8 @@ public class ServoUp extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        camera.servoUp();
-
+    	toteIntake.outIntakeReverse();
+    	toteIntake.inIntakeReverse();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,10 +45,13 @@ public class ServoUp extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+    	toteIntake.inIntakeOff();
+    	toteIntake.outIntakeOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }

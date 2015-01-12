@@ -5,12 +5,10 @@
  */
 package org.usfirst.frc5107.subsystems;
 
-import edu.wpi.first.wpilibj.Compressor;
+
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc5107.RobotMap;
-import org.usfirst.frc5107.commands.Compressor1;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
  *
@@ -20,7 +18,6 @@ public class Pneumatics extends Subsystem {
 
     Solenoid solenoid1;
     Solenoid solenoid2;
-    Compressor comp1;
     
     public Pneumatics() {
         solenoid1 = new Solenoid(1);
@@ -28,29 +25,23 @@ public class Pneumatics extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new Compressor1());
+        //setDefaultCommand(new Compressor1());
     }
 
-    public void neutral() {
-    	solenoid1.set(false);
-        solenoid2.set(true);
+    public void liftOn()
+    {
+         solenoid1.set(true);
     }
-
-    public void fire() {
-            solenoid1.set(true);
-            solenoid2.set(false);
+    public void liftOff()
+    {
+         solenoid1.set(false);
     }
-    public void compOn(){
-        //comp1.start();
+    public void clawOn()
+    {
+    	solenoid2.set(true);
     }
-    public void compOff(){
-        //comp1.stop();
+    public void clawOff()
+    {
+    	solenoid2.set(false);
     }
-    public void compEnable(){
-       // comp1.enabled();
-    }
-    public boolean compSwitch(){
-       return false;
-    }
-
 }

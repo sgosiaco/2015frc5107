@@ -12,22 +12,19 @@ import edu.wpi.first.wpilibj.DriverStation;
  *
  * @author BITKRUSHER
  */
-public class FeedReverse extends CommandBase {
+public class ToteLiftUp extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public FeedReverse () {
-        requires(clawFeed);
+    public ToteLiftUp() {
+        requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser4, 1, "                ");
-        //DriverStationLCD.getInstance().updateLCD();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser4, 1, "Claw Feed Out");
-        //DriverStationLCD.getInstance().updateLCD();
+        pneumatics.liftOff();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -35,7 +32,7 @@ public class FeedReverse extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        clawFeed.feedReverse();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -49,11 +46,7 @@ public class FeedReverse extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        clawFeed.feedOff();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser4, 1, "                ");
-        //DriverStationLCD.getInstance().updateLCD();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser4, 1, "Claw Feed Off");
-        //DriverStationLCD.getInstance().updateLCD();
+
     }
 
     // Called when another command which requires one or more of the same

@@ -24,10 +24,7 @@ public class ClawUp extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser5, 1, "            ");
-        //DriverStationLCD.getInstance().updateLCD();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser5, 1, "Claw Up");
-        //DriverStationLCD.getInstance().updateLCD();
+
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -50,8 +47,6 @@ public class ClawUp extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
         claw.clawOff();
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser5, 1, "Claw Off");
-        //DriverStationLCD.getInstance().updateLCD();
     }
 
     // Called when another command which requires one or more of the same

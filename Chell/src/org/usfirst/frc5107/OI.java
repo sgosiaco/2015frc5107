@@ -6,21 +6,16 @@ import edu.wpi.first.wpilibj.buttons.Button;
 //import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc5107.commands.Claw;
 import org.usfirst.frc5107.commands.ClawDoNothing;
 import org.usfirst.frc5107.commands.ClawDown;
 import org.usfirst.frc5107.commands.ClawUp;
 import org.usfirst.frc5107.commands.DriveWithJoysticks;
-import org.usfirst.frc5107.commands.FeedForward;
-import org.usfirst.frc5107.commands.FeedReverse;
-import org.usfirst.frc5107.commands.PneumaticsFire;
-import org.usfirst.frc5107.commands.PneumaticsNeutral;
-import org.usfirst.frc5107.commands.ServoDown;
-import org.usfirst.frc5107.commands.ServoUp;
-import org.usfirst.frc5107.commands.SpringForward;
-import org.usfirst.frc5107.commands.SpringReverse;
-import org.usfirst.frc5107.commands.VisionTarget;
-import org.usfirst.frc5107.commands.VisionTargetXY;
-import org.usfirst.frc5107.commands.yTrack;
+import org.usfirst.frc5107.commands.ToteIn;
+import org.usfirst.frc5107.commands.ToteLiftDown;
+import org.usfirst.frc5107.commands.ToteLiftUp;
+import org.usfirst.frc5107.commands.ToteOut;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -77,27 +72,14 @@ public class OI {
             rButton7 = new JoystickButton(rightStick, 7),
             rButton8 = new JoystickButton(rightStick, 8);
     public OI(){
-        lButton1.whileHeld(new SpringForward());
-        rButton1.whenPressed(new PneumaticsFire());
-        rButton1.whenReleased(new PneumaticsNeutral());
-        lButton3.whileHeld(new FeedForward());
-        lButton2.whileHeld(new FeedReverse());
+        rButton1.whenPressed(new ToteLiftDown());
+        rButton1.whenReleased(new ToteLiftUp());
+        lButton1.toggleWhenPressed(new Claw());
+        lButton3.whileHeld(new ToteIn());
+        lButton2.whileHeld(new ToteOut());
         rButton2.whileHeld(new ClawUp());
         rButton3.whileHeld(new ClawDown());
-        rButton4.whileHeld(new ServoUp());
-        rButton5.whileHeld(new ServoDown());
-        lButton5.toggleWhenPressed(new yTrack());
         
-        SmartDashboard.putData("ClawDoNothing", new ClawDoNothing());
-        SmartDashboard.putData("ClawDown", new ClawDown());
-        SmartDashboard.putData("ClawUp", new ClawUp());
-        SmartDashboard.putData("DriveWithJoysticks", new DriveWithJoysticks());
-        SmartDashboard.putData("FeedForward", new FeedForward());
-        SmartDashboard.putData("FeedReverse", new FeedReverse());
-        SmartDashboard.putData("PneumaticsFire", new PneumaticsFire());
-        SmartDashboard.putData("PneumaticsNeutral", new PneumaticsNeutral());
-        SmartDashboard.putData("SpringForward", new SpringForward());
-        SmartDashboard.putData("SpringReverse", new SpringReverse());
     }
     public double getLeftSpeed() {
         return leftStick.getY();

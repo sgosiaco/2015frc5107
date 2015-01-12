@@ -6,23 +6,25 @@
 
 package org.usfirst.frc5107.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
+
 /**
  *
  * @author BITKRUSHER
  */
-public class yTrack extends CommandBase {
+public class ToteLiftDown extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public yTrack() {
-        requires(camera);
+    public ToteLiftDown() {
+        requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        
+        pneumatics.liftOn();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -30,7 +32,7 @@ public class yTrack extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        camera.yTrack();
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -44,10 +46,12 @@ public class yTrack extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }

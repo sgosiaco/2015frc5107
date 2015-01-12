@@ -39,8 +39,6 @@ public class AutonomousCommand extends CommandBase{
     **/
     
     protected void initialize() {
-        //DriverStationLCD.getInstance().clear();
-        //DriverStationLCD.getInstance().updateLCD();
         
     }
 
@@ -69,8 +67,7 @@ public class AutonomousCommand extends CommandBase{
     }
 
     protected void end() {
-        //DriverStationLCD.getInstance().println(//DriverStationLCD.Line.kUser1, 1, "Autonomous Finished");
-        //DriverStationLCD.getInstance().updateLCD();
+
     }
 
     protected void interrupted() {
