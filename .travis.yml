@@ -1,7 +1,7 @@
 sudo: false
 language: java
 before_script:
-  -rm -rf bin build dist
+  rm -rf bin build dist
 install: git clone https://github.com/chopshop-166/wpilib-mirror.git ~/wpilib
 script: ant jar
 jdk: oraclejdk8
