@@ -30,8 +30,7 @@ public class ToteOut extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-    	toteIntake.outIntakeReverse();
-    	toteIntake.inIntakeReverse();
+    	toteIntake.IntakeReverse();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,8 +44,7 @@ public class ToteOut extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	toteIntake.inIntakeOff();
-    	toteIntake.outIntakeOff();
+    	toteIntake.IntakeOff();
     }
 
     // Called when another command which requires one or more of the same

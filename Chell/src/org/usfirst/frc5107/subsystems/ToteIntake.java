@@ -19,8 +19,6 @@ public class ToteIntake extends Subsystem {
         // The claws motor
     Victor lIntake;
     Victor rIntake;
-    Victor lIntake2;
-    Victor rIntake2;
     
     // Initialize your subsystem here
     /**
@@ -29,8 +27,6 @@ public class ToteIntake extends Subsystem {
     public ToteIntake() {
         lIntake = new Victor(RobotMap.lIntake);
         rIntake = new Victor(RobotMap.rIntake);
-        lIntake2 = new Victor(RobotMap.lIntake2);
-        rIntake2 = new Victor(RobotMap.rIntake2);
         
     }
     
@@ -40,29 +36,16 @@ public class ToteIntake extends Subsystem {
     public void initDefaultCommand() {
         //setDefaultCommand();
     }
-    public void outIntakeForward(){
+    public void IntakeForward(){
         lIntake.set(RobotMap.intakeSpeed);
         rIntake.set(RobotMap.intakeSpeed);
     }
-    public void outIntakeReverse(){
+    public void IntakeReverse(){
     	lIntake.set(-RobotMap.intakeSpeed);
     	rIntake.set(-RobotMap.intakeSpeed);
     }
-    public void outIntakeOff(){
+    public void IntakeOff(){
         lIntake.set(0);
         rIntake.set(0);
-    }
-
-    public void inIntakeForward(){
-    	lIntake2.set(RobotMap.intakeSpeed);
-    	rIntake2.set(RobotMap.intakeSpeed);
-    }
-    public void inIntakeReverse(){
-    	lIntake2.set(-RobotMap.intakeSpeed);
-    	rIntake2.set(-RobotMap.intakeSpeed);
-    }
-    public void inIntakeOff(){
-        lIntake2.set(0);
-        rIntake2.set(0);
     }
 }
