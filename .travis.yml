@@ -1,4 +1,5 @@
 language: java
-
+before_script:
+  - cd Chell
 jdk:
   - oraclejdk8
