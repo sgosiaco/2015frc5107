@@ -8,7 +8,6 @@ package org.usfirst.frc5107.subsystems;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.usfirst.frc5107.RobotMap;
 import org.usfirst.frc5107.commands.CommandBase;
 import org.usfirst.frc5107.commands.DriveWithJoysticks;
 import edu.wpi.first.wpilibj.CANTalon;

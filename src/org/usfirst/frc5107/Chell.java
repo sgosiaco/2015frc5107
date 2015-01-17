@@ -9,13 +9,11 @@
 package org.usfirst.frc5107;
 
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.Preferences;
 import org.usfirst.frc5107.commands.AutonomousCommand;
 import org.usfirst.frc5107.commands.CommandBase;
 import org.usfirst.frc5107.RobotMap;

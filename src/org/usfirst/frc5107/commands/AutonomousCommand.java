@@ -6,7 +6,6 @@
 
 package org.usfirst.frc5107.commands;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import org.usfirst.frc5107.subsystems.Camera;
 
 /**
