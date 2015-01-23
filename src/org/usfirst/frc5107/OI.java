@@ -7,8 +7,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc5107.commands.Claw;
+import org.usfirst.frc5107.commands.ClawClose;
 import org.usfirst.frc5107.commands.ClawDoNothing;
 import org.usfirst.frc5107.commands.ClawDown;
+import org.usfirst.frc5107.commands.ClawOpen;
 import org.usfirst.frc5107.commands.ClawUp;
 import org.usfirst.frc5107.commands.DriveWithJoysticks;
 import org.usfirst.frc5107.commands.ToteIn;
@@ -78,6 +80,8 @@ public class OI {
         lButton2.whileHeld(new ToteOut());
         rButton2.whileHeld(new ClawUp());
         rButton3.whileHeld(new ClawDown());
+        rButton4.whenPressed(new ClawClose());
+        rButton4.whenReleased(new ClawOpen());
         
     }
     public double getLeftSpeed() {

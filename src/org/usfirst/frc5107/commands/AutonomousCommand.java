@@ -58,7 +58,7 @@ public class AutonomousCommand extends CommandBase{
       //  }
       * 
       **/
-        driveTrain.valDrive(.1, 0);
+        //driveTrain.valDrive(.1, 0);
     }
 
     protected boolean isFinished() {
