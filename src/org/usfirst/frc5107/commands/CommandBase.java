@@ -3,12 +3,13 @@ package org.usfirst.frc5107.commands;
 import edu.wpi.first.wpilibj.NamedSendable;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc5107.OI;
 import org.usfirst.frc5107.subsystems.Camera;
 import org.usfirst.frc5107.subsystems.Claw;
 import org.usfirst.frc5107.subsystems.DriveTrain;
+import org.usfirst.frc5107.subsystems.Encoders;
 import org.usfirst.frc5107.subsystems.Pneumatics;
-
 import org.usfirst.frc5107.subsystems.Camera;
 import org.usfirst.frc5107.subsystems.ToteIntake;
 
@@ -27,6 +28,7 @@ public abstract class CommandBase extends Command {
     public static Pneumatics pneumatics = new Pneumatics();
     public static Camera camera = new Camera();
     public static ToteIntake toteIntake = new ToteIntake();
+    public static Encoders encoders = new Encoders();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
