@@ -18,6 +18,7 @@ public class StraightDrive extends CommandBase{
 
 	@Override
 	protected void execute() {
+		
 		while(true){
 			double left = encoders.flWheel.getRate();
 			double right = encoders.frWheel.getRate();
@@ -32,6 +33,7 @@ public class StraightDrive extends CommandBase{
 				}
 			}
 		}
+		
 	}
 
 	@Override
