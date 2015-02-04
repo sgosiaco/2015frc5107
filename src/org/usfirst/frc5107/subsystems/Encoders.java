@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Encoders extends Subsystem{
-
+	/**
 	public Encoder flWheel; // Front left
 	public Encoder frWheel; // Front Right
 	public Encoder rlWheel; // Rear Left
@@ -18,12 +18,13 @@ public class Encoders extends Subsystem{
 	private DigitalInput b3;
 	private DigitalInput a4;
 	private DigitalInput b4;
-	
+	*/
 	@Override
 	protected void initDefaultCommand() {
 		
 	}
 	public Encoders(){
+		/**
 		// First 2 numbers are digital input ports
 		// False means dont invert the counting direction
 		a1 = new DigitalInput(0);
@@ -34,17 +35,21 @@ public class Encoders extends Subsystem{
 		b3 = new DigitalInput(5);
 		a4 = new DigitalInput(6);
 		b4 = new DigitalInput(7);
+		//TODO  test if integers work with java update
 		flWheel = new Encoder(a1,b1,false, Encoder.EncodingType.k4X);
 		frWheel = new Encoder(a2,b2,false, Encoder.EncodingType.k4X);
 		rlWheel = new Encoder(a3,b3,false, Encoder.EncodingType.k4X);
 		rrWheel = new Encoder(a4,b4,false, Encoder.EncodingType.k4X);
+		*/
 	}
 	
 	public void reset(){
+		/**
 		flWheel.reset();
 		frWheel.reset();
 		rlWheel.reset();
 		rrWheel.reset();
+		*/
 	}
 
 }
