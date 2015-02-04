@@ -26,6 +26,20 @@ public class DriveWithJoysticks extends CommandBase {
      */
     protected void execute() {
         driveTrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
+    	//double m = (oi.getLeftSpeed() + oi.getRightSpeed())/2;
+    	//double n = (oi.getLeftSpeed() - oi.getRightSpeed())/2;
+    	//driveTrain.mecanum(oi.getLeftX(), oi.getLeftSpeed(), oi.getRightX());
+    	//driveTrain.mecanum(oi.getRightSpeed(), oi.getLeftSpeed(), oi.getRightX());
+        if(oi.getRight4())
+        {
+        	//strafe left
+        	driveTrain.strafe(.4, true);
+        }
+        if(oi.getRight5())
+        {
+        	//strafe right
+        	driveTrain.strafe(.4, false);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

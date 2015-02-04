@@ -36,11 +36,12 @@ public class Chell extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        RobotMap map = new RobotMap();
+        System.out.println("God damn");
+    	RobotMap map = new RobotMap();
     	CommandBase.init();
-        server = CameraServer.getInstance();
-        server.setQuality(20);
-        server.startAutomaticCapture("cam1");
+        //server = CameraServer.getInstance();
+        //server.setQuality(20);
+        //server.startAutomaticCapture("cam1");
         
         // instantiate the command used for the autonomous period
         //autonomousCommand = new AutonSt00f();

@@ -39,10 +39,10 @@ public class RobotMap {
     { 
     	Preferences pref = Preferences.getInstance();
         //Motors
-    	fLeftMotor = pref.getInt("fLeftMotor", 1);
-        rLeftMotor = pref.getInt("rLeftMotor", 2);
-        fRightMotor = pref.getInt("fRightMotor", 3);
-        rRightMotor = pref.getInt("rRightMotor", 4);
+    	fLeftMotor = pref.getInt("fLeftMotor", 0);
+        rLeftMotor = pref.getInt("rLeftMotor", 1);
+        fRightMotor = pref.getInt("fRightMotor", 2);
+        rRightMotor = pref.getInt("rRightMotor", 3);
         liftMotor = pref.getInt("liftMotor", 5);
         lIntake = pref.getInt("lIntake", 6);
         rIntake = pref.getInt("rIntake", 7);

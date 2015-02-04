@@ -78,17 +78,24 @@ public class OI {
         lButton1.toggleWhenPressed(new Claw());
         lButton3.whileHeld(new ToteIn());
         lButton2.whileHeld(new ToteOut());
+        lButton4.whenPressed(new ClawClose());
+        lButton4.whenReleased(new ClawOpen());
         rButton2.whileHeld(new ClawUp());
         rButton3.whileHeld(new ClawDown());
-        rButton4.whenPressed(new ClawClose());
-        rButton4.whenReleased(new ClawOpen());
-        
     }
     public double getLeftSpeed() {
         return leftStick.getY();
     }
     public double getRightSpeed() {
         return rightStick.getY();
+    }
+    public double getLeftX()
+    {
+    	return leftStick.getX();
+    }
+    public double getRightX()
+    {
+    	return rightStick.getX();
     }
     /*
     public void DisplayCoords(){
@@ -97,5 +104,14 @@ public class OI {
         System.out.println(javasucks);
     }
     */
+    public boolean getRight4()
+    {
+    	return rightStick.getRawButton(4);
+    }
+    public boolean getRight5()
+    {
+    	return rightStick.getRawButton(5);
+    }
+    
 }
 
