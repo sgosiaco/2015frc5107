@@ -3,24 +3,13 @@ package org.usfirst.frc5107.commands;
 import edu.wpi.first.wpilibj.CANJaguar;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.can.CANNotInitializedException;
 
 public class BetterDrive extends RobotDrive{
-	protected SpeedController m_frontLeftMotor;
-    protected SpeedController m_frontRightMotor;
-    protected SpeedController m_rearLeftMotor;
-    protected SpeedController m_rearRightMotor;
-    private boolean m_isCANInitialized = true;
 	public BetterDrive(SpeedController frontLeftMotor, SpeedController rearLeftMotor, SpeedController frontRightMotor, SpeedController rearRightMotor) {
 		super(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
-		bish();
+		
 	}
-	private void bish(){
-		m_frontLeftMotor = super.m_frontLeftMotor;
-	    m_frontRightMotor = super.m_frontRightMotor;
-	    m_rearLeftMotor = super.m_rearLeftMotor;
-	    m_rearRightMotor = super.m_rearRightMotor;
-	}
+	
 	public void tankDrive(double leftOutput, double rightOutput){
 		leftOutput = limit(leftOutput);
 		rightOutput = limit(rightOutput);
@@ -34,33 +23,23 @@ public class BetterDrive extends RobotDrive{
         } else {
         	rightOutput = -(rightOutput * rightOutput);
         }
-		double flOutput = -leftOutput;
-		double frOutput = -rightOutput;
-		double rlOutput = leftOutput;
-		double rrOutput = rightOutput;
 		
-		if (m_rearLeftMotor == null || m_rearRightMotor == null) {
+        if (m_rearLeftMotor == null || m_rearRightMotor == null) {
             throw new NullPointerException("Null motor provided");
         }
 
-        byte syncGroup = (byte)0x80;
-
         if (m_frontLeftMotor != null) {
-            m_frontLeftMotor.set(limit(flOutput) * m_invertedMotors[MotorType.kFrontLeft.value] * m_maxOutput, syncGroup);
+            m_frontLeftMotor.set(leftOutput * m_invertedMotors[0] * m_maxOutput, m_syncGroup);
         }
-        m_rearLeftMotor.set(limit(rlOutput) * m_invertedMotors[MotorType.kRearLeft.value] * m_maxOutput, syncGroup);
+        m_rearLeftMotor.set(leftOutput * m_invertedMotors[2] * m_maxOutput, m_syncGroup);
 
         if (m_frontRightMotor != null) {
-            m_frontRightMotor.set(-limit(frOutput) * m_invertedMotors[MotorType.kFrontRight.value] * m_maxOutput, syncGroup);
+            m_frontRightMotor.set(rightOutput * m_invertedMotors[1] * m_maxOutput, m_syncGroup);
         }
-        m_rearRightMotor.set(-limit(rrOutput) * m_invertedMotors[MotorType.kRearRight.value] * m_maxOutput, syncGroup);
+        m_rearRightMotor.set(rightOutput * m_invertedMotors[3] * m_maxOutput, m_syncGroup);
 
-        if (m_isCANInitialized) {
-            try {
-                CANJaguar.updateSyncGroup(syncGroup);
-            } catch (CANNotInitializedException e) {
-                m_isCANInitialized = false;
-            }
+        if (this.m_syncGroup != 0) {
+            CANJaguar.updateSyncGroup(m_syncGroup);
         }
 
         if (m_safetyHelper != null) m_safetyHelper.feed();
