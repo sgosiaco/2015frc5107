@@ -52,8 +52,8 @@ public class RobotMap {
         clawUp  = pref.getInt("clawUp", 1);
         clawDown = pref.getInt("clawDown", 2);
         //Motor Speeds
-        liftMotorSpeed = pref.getInt("liftMotorSpeed", 1);
-        intakeSpeed = pref.getInt("intakeSpeed", 1);
+        liftMotorSpeed = pref.getDouble("liftMotorSpeed", .4);
+        intakeSpeed = pref.getDouble("intakeSpeed", .4);
 
         
     }

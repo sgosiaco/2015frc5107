@@ -5,6 +5,8 @@
  */
 package org.usfirst.frc5107.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  *
@@ -40,6 +42,15 @@ public class DriveWithJoysticks extends CommandBase {
         	//strafe right
         	driveTrain.strafe(.4, false);
         }
+        if(oi.getLeft5())
+        {
+        	SmartDashboard.putString("DB/String 0", "Gyro: "+gyro.getAngle());
+        }
+        if(oi.getLeft8())
+        {
+        	gyro.reset();
+        }
+        	
     }
 
     // Make this return true when this Command no longer needs to run execute()
