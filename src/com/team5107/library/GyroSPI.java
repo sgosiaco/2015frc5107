@@ -2,6 +2,7 @@ package com.team5107.library;
 
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
+import java.util.ArrayList;
 
 public class GyroSPI {
 	private static final byte FIRST_BYTE_DATA = 0x3;
@@ -19,6 +20,8 @@ public class GyroSPI {
 	private byte[] command;
 	private byte[] data;
 	
+	private int iLoop;
+	
 	private Timer calibration_timer;
 	private Timer update_timer;
 	
@@ -30,6 +33,8 @@ public class GyroSPI {
 	private double thisTime;
 	
 	public GyroSPI(SPI.Port port){
+		iLoop = 0;
+		
 		spi = new SPI(port);
 		spi.setClockRate(4000000); //4 MHz (rRIO max, gyro can go high)
 		spi.setClockActiveHigh();
@@ -72,7 +77,7 @@ public class GyroSPI {
 		spi.transaction(command, data, DATA_SIZE); //perform transaction, get error code
 
 		if (calibration_timer.get() < WARM_UP_PERIOD){
-			lastTime = thisTime = update_timer.get();
+			thisTime = lastTime = update_timer.get();
 		} else if (calibration_timer.get() < CALIBRATE_PERIOD) {
 			Calibrate();
 		} else {
@@ -97,25 +102,23 @@ public class GyroSPI {
 	}
 	private void UpdateData() {
 		int sensor_data = assemble_sensor_data(data);
-		System.out.println(sensor_data);
 		double rate = (sensor_data) / 80;
-
 		current_rate = rate;
 		current_rate -= rate_offset;
 		thisTime = update_timer.get();
-
-		accumulated_offset += rate * (thisTime - lastTime);
-		accumulated_angle  +=  current_rate * (thisTime - lastTime);
+		double time_diff = thisTime - lastTime;
+		accumulated_offset += rate * time_diff;
+		accumulated_angle  +=  current_rate * time_diff;
 		lastTime = thisTime;
 	}
 	private void Calibrate() {
 		int sensor_data = assemble_sensor_data(data);
 		double rate = (sensor_data) / 80.0;
-
+		iLoop++;
 		thisTime = update_timer.get();
 		accumulated_offset += (rate * (thisTime - lastTime));
 		lastTime = thisTime;
-		rate_offset = accumulated_offset / (calibration_timer.get() - WARM_UP_PERIOD);
+		rate_offset = accumulated_offset / (iLoop);
 	}
 	private short assemble_sensor_data(byte[] data){
 		//cast to short to make space for shifts
