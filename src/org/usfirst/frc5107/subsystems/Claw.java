@@ -9,6 +9,7 @@ package org.usfirst.frc5107.subsystems;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
 import org.usfirst.frc5107.RobotMap;
 
 /**
@@ -27,6 +28,7 @@ public class Claw extends Subsystem {
      * Initialize the claw with the motor declared in {@link RobotMap}
      */
     public Claw() {
+    	System.out.println("Claw Active");
     	liftMotor = new Victor(RobotMap.liftMotor);
     	//clawUpLimit = new DigitalInput(RobotMap.clawUp);
         //clawDownLimit = new DigitalInput(RobotMap.clawDown);

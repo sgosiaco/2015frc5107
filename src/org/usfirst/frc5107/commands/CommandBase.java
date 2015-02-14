@@ -3,11 +3,13 @@ package org.usfirst.frc5107.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.NamedSendable;
+
 import org.usfirst.frc5107.OI;
 import org.usfirst.frc5107.subsystems.Camera;
 import org.usfirst.frc5107.subsystems.Claw;
 import org.usfirst.frc5107.subsystems.DriveTrain;
 import org.usfirst.frc5107.subsystems.Encoders;
+import org.usfirst.frc5107.subsystems.Gyroscope;
 import org.usfirst.frc5107.subsystems.Pneumatics;
 import org.usfirst.frc5107.subsystems.Camera;
 import org.usfirst.frc5107.subsystems.ToteIntake;
@@ -25,9 +27,10 @@ public abstract class CommandBase extends Command {
     public static DriveTrain driveTrain = new DriveTrain();
     public static Claw claw = new Claw();
     public static Pneumatics pneumatics = new Pneumatics();
-    public static Camera camera = new Camera();
+    //public static Camera camera = new Camera();
     public static ToteIntake toteIntake = new ToteIntake();
     //public static Encoders encoders = new Encoders();
+    public static Gyroscope gyro = new Gyroscope();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -35,6 +38,7 @@ public abstract class CommandBase extends Command {
         // which commands extend), subsystems are not guaranteed to be
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
+    	System.out.println("Is it OI?");
         oi = new OI();
 
         // Show what command your subsystem is running on the SmartDashboard

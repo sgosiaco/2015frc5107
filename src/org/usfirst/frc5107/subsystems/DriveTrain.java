@@ -31,10 +31,14 @@ public class DriveTrain extends Subsystem {
     //VictorSP rearLeft = new VictorSP(2);
     //VictorSP rearRight = new VictorSP(3);
     public DriveTrain(){
+<<<<<<< HEAD
        talons[0] = fLtalon;
        talons[1] = rLtalon;
        talons[2] = fRtalon;
        talons[3] = rRtalon;
+=======
+    	System.out.println("DriveTrain Active");
+>>>>>>> 531f1bfe015b2b5458c7325b129a91f28929cbcb
        //drive = new RobotDrive(RobotMap.fLeftMotor, RobotMap.rLeftMotor, RobotMap.fRightMotor, RobotMap.rRightMotor);
        //drive = new RobotDrive(frontLeft, frontRight, rearLeft, rearRight);
        drive = new RobotDrive(fLtalon, rLtalon, fRtalon, rRtalon);

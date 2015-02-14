@@ -112,6 +112,12 @@ public class OI {
     {
     	return rightStick.getRawButton(5);
     }
+    public boolean getLeft5(){
+    	return leftStick.getRawButton(5);
+    }
+	public boolean getLeft8() {
+		return leftStick.getRawButton(8);
+	}
     
 }
 

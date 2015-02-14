@@ -9,7 +9,7 @@ public class BetterDrive extends RobotDrive{
 		super(frontLeftMotor, rearLeftMotor, frontRightMotor, rearRightMotor);
 		
 	}
-	
+	@Override
 	public void tankDrive(double leftOutput, double rightOutput){
 		leftOutput = limit(leftOutput);
 		rightOutput = limit(rightOutput);
@@ -29,14 +29,14 @@ public class BetterDrive extends RobotDrive{
         }
 
         if (m_frontLeftMotor != null) {
-            m_frontLeftMotor.set(leftOutput * m_invertedMotors[0] * m_maxOutput, m_syncGroup);
+            m_frontLeftMotor.set(-leftOutput * m_invertedMotors[0] * m_maxOutput, m_syncGroup);
         }
         m_rearLeftMotor.set(leftOutput * m_invertedMotors[2] * m_maxOutput, m_syncGroup);
 
         if (m_frontRightMotor != null) {
             m_frontRightMotor.set(rightOutput * m_invertedMotors[1] * m_maxOutput, m_syncGroup);
         }
-        m_rearRightMotor.set(rightOutput * m_invertedMotors[3] * m_maxOutput, m_syncGroup);
+        m_rearRightMotor.set(-rightOutput * m_invertedMotors[3] * m_maxOutput, m_syncGroup);
 
         if (this.m_syncGroup != 0) {
             CANJaguar.updateSyncGroup(m_syncGroup);

@@ -14,8 +14,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
+
 import org.usfirst.frc5107.commands.AutonomousCommand;
 import org.usfirst.frc5107.commands.CommandBase;
+import org.usfirst.frc5107.commands.GyroUpdate;
 import org.usfirst.frc5107.RobotMap;
 
 
@@ -30,7 +32,6 @@ public class Chell extends IterativeRobot {
 
     Command autonomousCommand;
     CameraServer server;
-
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -39,6 +40,8 @@ public class Chell extends IterativeRobot {
         System.out.println("God damn");
     	RobotMap map = new RobotMap();
     	CommandBase.init();
+    	Command gupdate = new GyroUpdate();
+    	Scheduler.getInstance().add(gupdate);
         //server = CameraServer.getInstance();
         //server.setQuality(20);
         //server.startAutomaticCapture("cam1");
