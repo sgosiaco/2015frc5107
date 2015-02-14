@@ -28,8 +28,8 @@ public class Claw extends Subsystem {
      */
     public Claw() {
     	liftMotor = new Victor(RobotMap.liftMotor);
-    	clawUpLimit = new DigitalInput(RobotMap.clawUp);
-        clawDownLimit = new DigitalInput(RobotMap.clawDown);
+    	//clawUpLimit = new DigitalInput(RobotMap.clawUp);
+        //clawDownLimit = new DigitalInput(RobotMap.clawDown);
         
     }
     
@@ -40,10 +40,10 @@ public class Claw extends Subsystem {
         //setDefaultCommand(new ClawDoNothing());
     }
     public void clawUp(){
-            liftMotor.set(RobotMap.liftMotorSpeed);	  
+            liftMotor.set(.6);	  
     }
     public void clawDown(){
-            liftMotor.set(-RobotMap.liftMotorSpeed);
+            liftMotor.set(-.2);
     }
     public void clawOff(){
            liftMotor.set(0);

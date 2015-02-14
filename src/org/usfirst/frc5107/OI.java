@@ -54,7 +54,7 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-    Joystick leftStick = new Joystick(1);
+    Joystick leftStick = new Joystick(0);
     Button  lButton1 = new JoystickButton(leftStick, 1),
             lButton2 = new JoystickButton(leftStick, 2),
             lButton3 = new JoystickButton(leftStick, 3),
@@ -63,7 +63,7 @@ public class OI {
             lButton6 = new JoystickButton(leftStick, 6),
             lButton7 = new JoystickButton(leftStick, 7),
             lButton8 = new JoystickButton(leftStick, 8);
-    Joystick rightStick = new Joystick(2);
+    Joystick rightStick = new Joystick(1);
     Button  rButton1 = new JoystickButton(rightStick, 1),
             rButton2 = new JoystickButton(rightStick, 2),
             rButton3 = new JoystickButton(rightStick, 3),
@@ -80,8 +80,8 @@ public class OI {
         lButton2.whileHeld(new ToteOut());
         lButton4.whenPressed(new ClawClose());
         lButton4.whenReleased(new ClawOpen());
-        rButton2.whileHeld(new ClawUp());
-        rButton3.whileHeld(new ClawDown());
+        rButton3.whileHeld(new ClawUp());
+        rButton2.whileHeld(new ClawDown());
     }
     public double getLeftSpeed() {
         return leftStick.getY();

@@ -26,13 +26,14 @@ public class Camera extends Subsystem {
     double bottomY;
     
     public Camera(){
-       server  = NetworkTable.getTable("");
-       pan = new Servo(1);
+       //server  = NetworkTable.getTable("");
+       //pan = new Servo(1);
     }
-    public void initDefaultCommand() {
+ 
+   public void initDefaultCommand() {
         //setDefaultCommand(new yTrack());
     }
-
+/*
     public void servoUp() {
         double up;
         up = pan.get()+.01;
@@ -192,5 +193,6 @@ public class Camera extends Subsystem {
 
             return distanceFeet;
     }
+    */
     }
 

@@ -28,17 +28,19 @@ public class DriveWithJoysticks extends CommandBase {
         driveTrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
     	//double m = (oi.getLeftSpeed() + oi.getRightSpeed())/2;
     	//double n = (oi.getLeftSpeed() - oi.getRightSpeed())/2;
+    	//driveTrain.mecanum(oi.getRightX(), m, n);
+    	
     	//driveTrain.mecanum(oi.getLeftX(), oi.getLeftSpeed(), oi.getRightX());
     	//driveTrain.mecanum(oi.getRightSpeed(), oi.getLeftSpeed(), oi.getRightX());
         if(oi.getRight4())
         {
         	//strafe left
-        	driveTrain.strafe(.4, true);
+        	driveTrain.strafe(.35, false);
         }
         if(oi.getRight5())
         {
         	//strafe right
-        	driveTrain.strafe(.4, false);
+        	driveTrain.strafe(.35, true);
         }
     }
 

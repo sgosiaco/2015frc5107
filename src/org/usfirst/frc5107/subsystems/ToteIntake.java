@@ -38,11 +38,11 @@ public class ToteIntake extends Subsystem {
     }
     public void IntakeForward(){
         lIntake.set(RobotMap.intakeSpeed);
-        rIntake.set(RobotMap.intakeSpeed);
+        rIntake.set(-RobotMap.intakeSpeed);
     }
     public void IntakeReverse(){
     	lIntake.set(-RobotMap.intakeSpeed);
-    	rIntake.set(-RobotMap.intakeSpeed);
+    	rIntake.set(+RobotMap.intakeSpeed);
     }
     public void IntakeOff(){
         lIntake.set(0);
