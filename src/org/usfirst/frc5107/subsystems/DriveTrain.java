@@ -114,7 +114,7 @@ public class DriveTrain extends Subsystem {
     	}
     }
     public void pidBones(double p){
-    	for(CANTalon c : talons){
+    	/**for(CANTalon c : talons){
     		c.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     		c.changeControlMode(ControlMode.Speed);
     		c.setPID(p, 0, 0);
@@ -122,6 +122,7 @@ public class DriveTrain extends Subsystem {
     	}
     	for(CANTalon c : talons)
     		c.set(0);
+    	*/
 	}
     public void testPID(double val)
     {
