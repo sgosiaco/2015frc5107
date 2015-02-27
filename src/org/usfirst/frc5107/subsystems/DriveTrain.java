@@ -62,6 +62,10 @@ public class DriveTrain extends Subsystem {
     	   talons[i].setProfile(0);
     	   
        }
+       fLtalon.reverseSensor(true);
+       rLtalon.reverseSensor(true);
+       //fRtalon.changeControlMode(CANTalon.ControlMode.Speed);
+       //fRtalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 
  }
     public void initDefaultCommand() {
@@ -118,5 +122,9 @@ public class DriveTrain extends Subsystem {
     	}
     	for(CANTalon c : talons)
     		c.set(0);
+	}
+    public void testPID(double val)
+    {
+    		//fRtalon.set(val);   
     }
 }
