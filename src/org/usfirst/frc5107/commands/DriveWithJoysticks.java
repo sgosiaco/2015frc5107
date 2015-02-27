@@ -19,7 +19,7 @@ public class DriveWithJoysticks extends CommandBase {
     }
     // Called just before this Command runs the first time
     protected void initialize() {
-
+ 
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,23 +27,25 @@ public class DriveWithJoysticks extends CommandBase {
      * Have the drivetrain drive tank drive with the latest values from joysticks.
      */
     protected void execute() {
-        driveTrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
+    	driveTrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
     	//double m = (oi.getLeftSpeed() + oi.getRightSpeed())/2;
     	//double n = (oi.getLeftSpeed() - oi.getRightSpeed())/2;
     	//driveTrain.mecanum(oi.getRightX(), m, n);
     	
     	//driveTrain.mecanum(oi.getLeftX(), oi.getLeftSpeed(), oi.getRightX());
     	//driveTrain.mecanum(oi.getRightSpeed(), oi.getLeftSpeed(), oi.getRightX());
-        if(oi.getRight4())
+        /*
+    	if(oi.getRight4())
         {
         	//strafe left
-        	driveTrain.strafe(.35, false);
+        	driveTrain.strafe(.75, false);
         }
         if(oi.getRight5())
         {
         	//strafe right
-        	driveTrain.strafe(.35, true);
+        	driveTrain.strafe(.75, true);
         }
+        */
         if(oi.getLeft5())
         {
         	SmartDashboard.putString("DB/String 0", "Gyro: "+gyro.getAngle());
@@ -51,6 +53,10 @@ public class DriveWithJoysticks extends CommandBase {
         if(oi.getLeft8())
         {
         	gyro.reset();
+        }
+        if(oi.getRight7())
+        {
+        	driveTrain.testPID(30);
         }
         	
     }

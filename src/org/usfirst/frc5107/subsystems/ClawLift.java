@@ -17,25 +17,16 @@ import org.usfirst.frc5107.RobotMap;
  *
  * @author BITKRUSHER
  */
-public class Claw extends Subsystem {
+public class ClawLift extends Subsystem {
     //Lift Motor
-    //Victor liftMotor;
-    //Limit switches for up and down positions
-    DigitalInput clawUpLimit;
-    DigitalInput clawDownLimit;
-    Solenoid solenoid4;
-    Solenoid solenoid5;
+    Victor liftMotor;
     
     // Initialize your subsystem here
     /**
      * Initialize the claw with the motor declared in {@link RobotMap}
      */
-    public Claw() {
-    	System.out.println("Claw Active");
-    	//clawUpLimit = new DigitalInput(RobotMap.clawUp);
-        //clawDownLimit = new DigitalInput(RobotMap.clawDown);
-        solenoid4 = new Solenoid(4);
-        solenoid5 = new Solenoid(5);
+    public ClawLift() {
+    	liftMotor = new Victor(RobotMap.liftMotor);
     }
     
     /**
@@ -44,20 +35,13 @@ public class Claw extends Subsystem {
     public void initDefaultCommand() {
         //setDefaultCommand(new ClawDoNothing());
     }
-    public boolean clawUpLimit(){
-        return clawUpLimit.get();
+    public void clawUp(){
+            liftMotor.set(1);	  
     }
-    public boolean clawDownLimit(){
-    	return clawDownLimit.get();
+    public void clawDown(){
+            liftMotor.set(-.5);
     }
-    public void clawOn()
-    {
-    	solenoid4.set(true);
-    	solenoid5.set(false);
-    }
-    public void clawOff()
-    {
-    	solenoid4.set(false);
-    	solenoid5.set(true);
+    public void clawMOff(){
+            liftMotor.set(0);
     }
 }

@@ -6,26 +6,26 @@
 
 package org.usfirst.frc5107.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  *
  * @author BITKRUSHER
  */
-public class Claw extends CommandBase {
+public class ToteLiftToggle extends CommandBase {
     
     /**
      * Initialize the command so that it requires the claw. This means it will
      * be interrupted if another command requiring the claw is run.
      */
-    public Claw() {
-        requires(claw);
+    public ToteLiftToggle() {
+        requires(pneumatics);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        claw.clawOff();
+        pneumatics.liftOff();
     }
-
     // Called repeatedly when this Command is scheduled to run
     /**
      * Tells the claw to do nothing, stopping any previous movement.
@@ -45,11 +45,12 @@ public class Claw extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        pneumatics.liftOn();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	claw.clawOn();
+        end();
     }
 }

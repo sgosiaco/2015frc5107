@@ -15,6 +15,7 @@ import org.usfirst.frc5107.commands.ClawUp;
 import org.usfirst.frc5107.commands.DriveWithJoysticks;
 import org.usfirst.frc5107.commands.ToteIn;
 import org.usfirst.frc5107.commands.ToteLiftDown;
+import org.usfirst.frc5107.commands.ToteLiftToggle;
 import org.usfirst.frc5107.commands.ToteLiftUp;
 import org.usfirst.frc5107.commands.ToteOut;
 
@@ -73,13 +74,14 @@ public class OI {
             rButton7 = new JoystickButton(rightStick, 7),
             rButton8 = new JoystickButton(rightStick, 8);
     public OI(){
-        rButton1.whenPressed(new ToteLiftDown());
-        rButton1.whenReleased(new ToteLiftUp());
         lButton1.toggleWhenPressed(new Claw());
         lButton3.whileHeld(new ToteIn());
         lButton2.whileHeld(new ToteOut());
-        lButton4.whenPressed(new ClawClose());
-        lButton4.whenReleased(new ClawOpen());
+        //lButton4.whenPressed(new ClawClose());
+        //lButton4.whenReleased(new ClawOpen());
+        //rButton1.whenPressed(new ToteLiftDown());
+        //rButton1.whenReleased(new ToteLiftUp());
+        rButton1.toggleWhenPressed(new ToteLiftToggle());
         rButton3.whileHeld(new ClawUp());
         rButton2.whileHeld(new ClawDown());
     }
@@ -117,6 +119,10 @@ public class OI {
     }
 	public boolean getLeft8() {
 		return leftStick.getRawButton(8);
+	}
+	public boolean getRight7()
+	{
+	    return rightStick.getRawButton(7);	
 	}
     
 }

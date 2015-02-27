@@ -60,6 +60,10 @@ public class DriveTrain extends Subsystem {
     	   talons[i].setProfile(0);
     	   
        }
+       fLtalon.reverseSensor(true);
+       rLtalon.reverseSensor(true);
+       //fRtalon.changeControlMode(CANTalon.ControlMode.Speed);
+       //fRtalon.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
 
  }
     public void initDefaultCommand() {
@@ -106,5 +110,9 @@ public class DriveTrain extends Subsystem {
     		//drive.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
     		//drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
     	}
+    }
+    public void testPID(double val)
+    {
+    		//fRtalon.set(val);   
     }
 }

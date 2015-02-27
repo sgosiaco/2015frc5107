@@ -18,12 +18,12 @@ public class ClawOpen extends CommandBase {
      * be interrupted if another command requiring the claw is run.
      */
     public ClawOpen() {
-        requires(pneumatics);
+        requires(claw);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        pneumatics.clawOff();
+        claw.clawOff();
     }
 
     // Called repeatedly when this Command is scheduled to run

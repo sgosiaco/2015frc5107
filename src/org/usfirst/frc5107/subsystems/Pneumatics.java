@@ -8,6 +8,7 @@ package org.usfirst.frc5107.subsystems;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc5107.commands.ClawClose;
 
 /**
  *
@@ -15,48 +16,53 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Pneumatics extends Subsystem {
 
-    Solenoid solenoid0;
-    Solenoid solenoid1;
+    //Solenoid solenoid0;
+    //Solenoid solenoid1;
     Solenoid solenoid2;
     Solenoid solenoid3;
-    Solenoid solenoid4;
-    Solenoid solenoid5;
+
     
     public Pneumatics() {
-    	solenoid0 = new Solenoid(0);
-    	solenoid1 = new Solenoid(1);
+    	//solenoid0 = new Solenoid(0);
+    	//solenoid1 = new Solenoid(1);
         solenoid2 = new Solenoid(2);
         solenoid3 = new Solenoid(3);
-        solenoid4 = new Solenoid(4);
-        solenoid5 = new Solenoid(5);
+
     }
 
     public void initDefaultCommand() {
-        //setDefaultCommand(new Compressor1());
+        //setDefaultCommand(new ClawClose());
     }
 
     public void liftOn()
     {
-    	solenoid0.set(true); 
-    	solenoid1.set(true);
+    	//solenoid0.set(true); 
+    	//solenoid1.set(true);
     	solenoid2.set(true);
     	solenoid3.set(true);
     }
     public void liftOff()
     {
-    	solenoid0.set(false); 
-    	solenoid1.set(false);
+    	//solenoid0.set(false); 
+    	//solenoid1.set(false);
     	solenoid2.set(false);
     	solenoid3.set(false);
     }
-    public void clawOn()
+
+    public void leftOn()
     {
-    	solenoid4.set(true);
-    	solenoid5.set(false);
+    	solenoid3.set(true);
     }
-    public void clawOff()
+    public void rightOn()
     {
-    	solenoid4.set(false);
-    	solenoid5.set(true);
+    	solenoid2.set(true);
+    }
+    public void leftOff()
+    {
+        solenoid3.set(false);	
+    }
+    public void rightOff()
+    {
+        solenoid2.set(false);
     }
 }

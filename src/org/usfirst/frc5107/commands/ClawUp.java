@@ -18,7 +18,7 @@ public class ClawUp extends CommandBase {
      * be interrupted if another command requiring the claw is run.
      */
     public ClawUp() {
-        requires(claw);
+        requires(clawLift);
     }
 
     // Called just before this Command runs the first time
@@ -31,7 +31,7 @@ public class ClawUp extends CommandBase {
      * Tells the claw to do nothing, stopping any previous movement.
      */
     protected void execute() {
-        claw.clawUp();
+        clawLift.clawUp();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -45,7 +45,7 @@ public class ClawUp extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        claw.clawOff();
+        clawLift.clawMOff();
     }
 
     // Called when another command which requires one or more of the same
