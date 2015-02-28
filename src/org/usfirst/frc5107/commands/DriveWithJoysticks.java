@@ -27,7 +27,9 @@ public class DriveWithJoysticks extends CommandBase {
      * Have the drivetrain drive tank drive with the latest values from joysticks.
      */
     protected void execute() {
-    	driveTrain.tankDrive(oi.getLeftSpeed(), oi.getRightSpeed());
+    	boolean slow = true;
+    	double x = 1.5;
+    	driveTrain.tankDrive(oi.getLeftSpeed()/x, oi.getRightSpeed()/x);
     	//double m = (oi.getLeftSpeed() + oi.getRightSpeed())/2;
     	//double n = (oi.getLeftSpeed() - oi.getRightSpeed())/2;
     	//driveTrain.mecanum(oi.getRightX(), m, n);
@@ -54,9 +56,23 @@ public class DriveWithJoysticks extends CommandBase {
         {
         	gyro.reset();
         }
+        /*
         if(oi.getRight7())
         {
         	driveTrain.testPID(30);
+        }
+        */
+        if(oi.getRight4() && slow == true)
+        {
+        	x = 1;
+        	slow = false;
+        	SmartDashboard.putString("DB/String 1", "Speed: FAST");
+        }
+        if(oi.getRight4() && slow == false)
+        {
+        	x = 1.5;
+        	slow = true;
+        	SmartDashboard.putString("DB/String 1", "Speed: SLOW");
         }
         	
     }

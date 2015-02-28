@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
 
 import org.usfirst.frc5107.commands.AutonomousCommand;
 import org.usfirst.frc5107.commands.CommandBase;
@@ -51,7 +52,8 @@ public class Chell extends IterativeRobot {
         
 
         // Initialize all subsystems
-        
+        Compressor comp = new Compressor();
+        comp.clearAllPCMStickyFaults();
     }
 
     public void autonomousInit() {
