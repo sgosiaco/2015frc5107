@@ -14,6 +14,8 @@ import org.usfirst.frc5107.commands.CommandBase;
 import org.usfirst.frc5107.commands.DriveWithJoysticks;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.ControlMode;
+import edu.wpi.first.wpilibj.CANTalon.FeedbackDevice;
 import edu.wpi.first.wpilibj.VictorSP;
 /**
  *
@@ -111,6 +113,17 @@ public class DriveTrain extends Subsystem {
     		//drive.setInvertedMotor(RobotDrive.MotorType.kRearRight, false);
     	}
     }
+    public void pidBones(double p){
+    	/**for(CANTalon c : talons){
+    		c.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    		c.changeControlMode(ControlMode.Speed);
+    		c.setPID(p, 0, 0);
+    		c.enableControl();
+    	}
+    	for(CANTalon c : talons)
+    		c.set(0);
+    	*/
+	}
     public void testPID(double val)
     {
     		//fRtalon.set(val);   
