@@ -51,7 +51,7 @@ public class RobotMap {
         liftMotorSpeed = pref.getDouble("liftMotorSpeed", .5);
         intakeSpeed = pref.getDouble("intakeSpeed", .5);
         liftMotorSpeed = pref.getDouble("liftMotorSpeed", .4);
-        intakeSpeed = pref.getDouble("intakeSpeed", 1);
+        intakeSpeed = .25;
 
         
     }

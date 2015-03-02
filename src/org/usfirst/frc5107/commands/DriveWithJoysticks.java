@@ -13,13 +13,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author BITKRUSHER
  */
 public class DriveWithJoysticks extends CommandBase {
-
+    private boolean slow;
     public DriveWithJoysticks() {
         requires(driveTrain);
+        slow = true;
+        
     }
     // Called just before this Command runs the first time
     protected void initialize() {
- 
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -27,16 +29,16 @@ public class DriveWithJoysticks extends CommandBase {
      * Have the drivetrain drive tank drive with the latest values from joysticks.
      */
     protected void execute() {
-    	boolean slow = true;
-    	double x = 1.5;
-    	driveTrain.tankDrive(oi.getLeftSpeed()/x, oi.getRightSpeed()/x);
+
+    	double x = 1;
+    	driveTrain.tankDrive(oi.getLeftSpeed()/(x), oi.getRightSpeed()/(x));
     	//double m = (oi.getLeftSpeed() + oi.getRightSpeed())/2;
     	//double n = (oi.getLeftSpeed() - oi.getRightSpeed())/2;
     	//driveTrain.mecanum(oi.getRightX(), m, n);
     	
     	//driveTrain.mecanum(oi.getLeftX(), oi.getLeftSpeed(), oi.getRightX());
     	//driveTrain.mecanum(oi.getRightSpeed(), oi.getLeftSpeed(), oi.getRightX());
-        /*
+        
     	if(oi.getRight4())
         {
         	//strafe left
@@ -47,7 +49,7 @@ public class DriveWithJoysticks extends CommandBase {
         	//strafe right
         	driveTrain.strafe(.75, true);
         }
-        */
+        
         if(oi.getLeft5())
         {
         	SmartDashboard.putString("DB/String 0", "Gyro: "+gyro.getAngle());
@@ -62,18 +64,6 @@ public class DriveWithJoysticks extends CommandBase {
         	driveTrain.testPID(30);
         }
         */
-        if(oi.getRight4() && slow == true)
-        {
-        	x = 1;
-        	slow = false;
-        	SmartDashboard.putString("DB/String 1", "Speed: FAST");
-        }
-        if(oi.getRight4() && slow == false)
-        {
-        	x = 1.5;
-        	slow = true;
-        	SmartDashboard.putString("DB/String 1", "Speed: SLOW");
-        }
         	
     }
 

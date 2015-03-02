@@ -16,7 +16,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 
-import org.usfirst.frc5107.commands.AutonomousCommand;
+import org.usfirst.frc5107.commands.Auto;
+//import org.usfirst.frc5107.commands.AutonomousCommand;
 import org.usfirst.frc5107.commands.CommandBase;
 import org.usfirst.frc5107.commands.GyroUpdate;
 import org.usfirst.frc5107.RobotMap;
@@ -48,7 +49,8 @@ public class Chell extends IterativeRobot {
         //server.startAutomaticCapture("cam1");
         
         // instantiate the command used for the autonomous period
-        //autonomousCommand = new AutonSt00f();
+        
+    	//autonomousCommand = new Auto();
         
 
         // Initialize all subsystems
@@ -58,7 +60,8 @@ public class Chell extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        //autonomousCommand.start();
+        
+    	//autonomousCommand.start();
     }
 
     /**
@@ -73,7 +76,8 @@ public class Chell extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        //autonomousCommand.cancel(); 
+        
+    	//autonomousCommand.cancel(); 
     }
 
     /**
